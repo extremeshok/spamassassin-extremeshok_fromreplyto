@@ -9,12 +9,14 @@ spamassassin
 
 INSTALL GUIDE
 ================================
+# create plugin directory.
+mkdir /etc/mail/spamassassin/plugins/
 
-wget https://raw.github.com/extremeshok/iredmail-atomic-clamav/master/update-atomic-clamav.sh -O /etc/cron.daily/update-atomic-clamav
+#download the following and save to /etc/mail/spamassassin/plugins/
+FromAndReplyToIsNotSameDomain.pm
+FromIsNotReplyTo.pm
 
-chmod +x /etc/cron.daily/update-atomic-clamav
+# Add contents of  spamassassin_sample.conf to  /etc/mail/spamassassin/local.conf
 
-### edit your username and password
-vi /etc/cron.daily/update-atomic-clamav
 ================================
  
