@@ -35,5 +35,18 @@ sub check_for_from_and_reply_to_is_not_same_domain {
         if ( $from ne '' && $replyTo ne '' && $from ne $replyTo ) {
                 return 1;
         }
+
+        if ( $from eq 'fnbstatements.co.za' && $replyTo eq 'fnb.co.za') {
+                return 1;
+        }
+
+        if ( $from eq 'life.thinkingahead.co.za' && $replyTo eq 'sanlam.co.za') {
+                return 1;
+        }
+
+        if ( $from eq 'emc.co.za' && ( $replyTo eq 'vodacom.co.za' || $replyTo eq 'total.co.za' )) {
+                return 1;
+        }
+
         return 0;
 }
