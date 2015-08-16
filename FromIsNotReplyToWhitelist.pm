@@ -42,7 +42,7 @@ sub check_for_from_is_not_reply_to_whitelist {
         if ( $from eq 'fnbstatements.co.za' && $replyTo eq 'fnb.co.za' ) {
                 return 1
         }        
-        if ( $from eq 'emc.co.za' && ($replyTo eq '@edcon.co.za' || $replyTo eq 'vodacom.co.za' || $replyTo eq 'total.co.za' ) ) {
+        if ( $from eq 'emc.co.za' && ($replyTo eq 'edcon.co.za' || $replyTo eq 'vodacom.co.za' || $replyTo eq 'total.co.za' ) ) {
                 return 1
         }       
         

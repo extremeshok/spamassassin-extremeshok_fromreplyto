@@ -24,3 +24,7 @@ FromIsNotReplyToWhitelist.pm
 
 Download and save 01_extremeshok_fromreplyto.cf to  /etc/mail/spamassassin/01_extremeshok_fromreplyto.cf
  
+
+## Version 1.2.0 (updated 2015-08-16)
+ - eXtremeSHOK.com Maintenance
+ - Better logic with domain checking, will allow for different subdomains of the same domain name.

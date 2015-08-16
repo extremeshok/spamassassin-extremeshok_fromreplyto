@@ -25,15 +25,62 @@ sub new {
         return $self;
 }
 
+# sub check_for_from_and_reply_to_is_not_same_domain {
+#         my ($self, $msg) = @_;
+#         my $from = lc($msg->get( 'From:addr' ));
+#         $from =~ s/.*@//;
+#         my $replyTo = lc($msg->get( 'Reply-To:addr' ));
+#         $replyTo =~ s/.*@//;
+#         #Mail::SpamAssassin::Plugin::dbg( "check_for_from_and_reply_to_is_not_same_domain: Comparing '$from'/'$replyTo" );
+#         if ( $from ne '' && $replyTo ne '' && $from ne $replyTo ) {
+#                 return 1;
+#         }
+#         return 0;
+# }
+
 sub check_for_from_and_reply_to_is_not_same_domain {
         my ($self, $msg) = @_;
         my $from = lc($msg->get( 'From:addr' ));
         $from =~ s/.*@//;
+
         my $replyTo = lc($msg->get( 'Reply-To:addr' ));
         $replyTo =~ s/.*@//;
-        #Mail::SpamAssassin::Plugin::dbg( "check_for_from_and_reply_to_is_not_same_domain: Comparing '$from'/'$replyTo" );
-        if ( $from ne '' && $replyTo ne '' && $from ne $replyTo ) {
-                return 1;
+
+        if(( $from eq '' ) || ( $replyTo eq '' )){
+                return 1; #fail, empty domains
         }
-        return 0;
+        #short-circuit logic
+        if( $from ne $replyTo )  {
+                #create arrays to make life easier
+                my @fromParts = split( /\./, $from );
+                my @replyToParts = split( /\./, $replyTo );
+
+
+                if (( $#fromParts ge 2) && ( $#fromParts ge 2 )) { 
+                        if ($fromParts[-1] ne $replyToParts[-1]){ 
+                                return 1; #fail, not the same .tld
+                        }
+                        if ($fromParts[-2] ne $replyToParts[-2]){ 
+                                return 1; #fail, not the same domain.tld / tld.tld
+                        }
+                }
+                if (( $#fromParts ge 3) && ( $#fromParts ge 3 )) {
+                        if ($fromParts[-3] ne $replyToParts[-3]){ 
+                                return 1; #fail,not the same sub.domain.tld / domain.tld.tld
+                        }
+                }
+                if (( $#fromParts ge 4) && ( $#fromParts ge 4 )) {
+                        if (( $#fromParts gt 4) || ( $#fromParts gt 4 )) {                     
+                                if ($fromParts[-4] ne $replyToParts[-4]){ 
+                                        return 1; #fail,not the same domain sub.sub.sub.domain.tld / sub.sub.domain.tld.tld
+                                }
+                        }else{
+                                if ($fromParts[-3] ne $replyToParts[-3]){ 
+                                        return 1; #fail,not the same domain sub.sub.domain.tld / sub.domain.tld.tld
+                                }     
+                        }
+                }
+        }
+
+        return 0; #PASS
 }
