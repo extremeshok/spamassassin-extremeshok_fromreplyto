@@ -24,6 +24,9 @@ FromIsNotReplyToWhitelist.pm
 
 Download and save 01_extremeshok_fromreplyto.cf to  /etc/mail/spamassassin/01_extremeshok_fromreplyto.cf
  
+## Version 1.2.10 (updated 2015-08-16)
+ - eXtremeSHOK.com Maintenance
+ - Fix for scoring missing from/replyto as a fail
 
 ## Version 1.2.0 (updated 2015-08-16)
  - eXtremeSHOK.com Maintenance

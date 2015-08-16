@@ -47,7 +47,7 @@ sub check_for_from_and_reply_to_is_not_same_domain {
         $replyTo =~ s/.*@//;
 
         if(( $from eq '' ) || ( $replyTo eq '' )){
-                return 1; #fail, empty domains
+                return 0; #PASS, empty from or reply to
         }
         #short-circuit logic
         if( $from ne $replyTo )  {
