@@ -38,6 +38,12 @@ sub check_for_from_is_not_reply_to_whitelist {
         #Mail::SpamAssassin::Plugin::dbg( "FromIsNotReplyTo: Comparing '$from'/'$replyTo" );
         if ( $from eq 'life.thinkingahead.co.za' && $replyTo eq 'sanlam.co.za' ) {
                 return 1
+        }
+        if ( $from eq 'accounting.sageone.co.za' && $replyTo eq 'hitecsecurity.co.za' ) {
+                return 1
+        }  
+        if ( $from eq 'enews.swanhellenic.com' && $replyTo eq 'pageandmoytravelgroup.com' ) {
+                return 1
         }       
         if ( $from eq 'fnbstatements.co.za' && $replyTo eq 'fnb.co.za' ) {
                 return 1
