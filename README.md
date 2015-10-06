@@ -1,5 +1,4 @@
 # spamassassin-extremeshok_fromreplyto
-Spamassassin eXtremeSHOK fromreplyto
 
 ## Maintained and provided by https://eXtremeSHOK.com
 
@@ -19,7 +18,7 @@ create the plugin directory.
 mkdir /etc/mail/spamassassin/plugins/
 ```
 
-Download and save the plugins to and save to /etc/mail/spamassassin/plugins/
+Download and save the plugins to /etc/mail/spamassassin/plugins/
 
 Download and save 01_extremeshok_fromreplyto.cf to /etc/mail/spamassassin/01_extremeshok_fromreplyto.cf
 
@@ -33,6 +32,8 @@ spamassassin -D --lint 2>&1 | grep -i failed
  - eXtremeSHOK.com Maintenance
  - Added FromIsTo, most spam emails the from" and to" is identical
  - Minor code cleanups
+ - Project renamed
+ - Improved documentation
  
 ## Version 1.2.10 (updated 2015-08-16)
  - eXtremeSHOK.com Maintenance
