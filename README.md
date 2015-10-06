@@ -1,11 +1,13 @@
-# spamassassin-from_is_not_reply-to
-Spamassassin from is not reply-to
+# spamassassin-extremeshok_fromreplyto
+Spamassassin eXtremeSHOK fromreplyto
 
 ## Maintained and provided by https://eXtremeSHOK.com
 
 ## Description
-configure spamassassin to score mails with a reply-to header that is different from the sender (From: header).
-
+Configures spamassassin to score mails with various rules against the reply-to, from and to headers.
+Spam often uses a different From: and Reply-To: Whilst most legitimate email does not.
+Spam often uses the same From: and To: Whilst most legitimate email does not
+Same domain checking Logic, will allow for different subdomains of the same domain name.
 
 ## REQUIRES
 spamassassin
@@ -13,17 +15,18 @@ spamassassin
 ## INSTALL GUIDE
 
 create the plugin directory.
-
+```
 mkdir /etc/mail/spamassassin/plugins/
+```
 
-download the following and save to /etc/mail/spamassassin/plugins/
+Download and save the plugins to and save to /etc/mail/spamassassin/plugins/
 
-FromAndReplyToIsNotSameDomain.pm
-FromIsNotReplyTo.pm
-FromIsNotReplyToWhitelist.pm
-FromIsTo.pm
+Download and save 01_extremeshok_fromreplyto.cf to /etc/mail/spamassassin/01_extremeshok_fromreplyto.cf
 
-Download and save 01_extremeshok_fromreplyto.cf to  /etc/mail/spamassassin/01_extremeshok_fromreplyto.cf
+Verify the installation
+```
+spamassassin -D --lint 2>&1 | grep -i failed
+```
 
  
 ## Version 1.3 (updated 2015-10-06)

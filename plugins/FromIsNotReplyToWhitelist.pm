@@ -8,7 +8,6 @@
 # Sometimes the From: and Reply-To: are different, 
 # but the domains will be the same.
 # If the domains are different the email is sapm.
-# Originially based on: scripts by Omar David Zapién López
 ##################
 
 package FromIsNotReplyToWhitelist;
