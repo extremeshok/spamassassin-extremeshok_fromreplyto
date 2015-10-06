@@ -3,15 +3,12 @@
 # You are free to use, modify and distribute, however you may not remove this notice.
 # Copyright (c) Adrian Jon Kriel :: admin@extremeshok.com
 ##################
-# Spam often uses a different From: and Reply-To:
+# Spam often uses the same From: and To:
 # Whilst most legitimate email does not
-# Sometimes the From: and Reply-To: are different, 
-# but the domains will be the same.
 # If the domains are different the email is sapm.
-# Originially based on: scripts by Omar David Zapién López
 ##################
 
-package FromIsNotReplyTo;
+package FromIsNotTo;
 1;
 use strict;
 use Mail::SpamAssassin;
@@ -23,17 +20,17 @@ sub new {
 	$class = ref($class) || $class;
 	my $self = $class->SUPER::new( $mailsa );
 	bless ($self, $class);
-	$self->register_eval_rule ( 'check_for_from_is_not_reply_to' );
+	$self->register_eval_rule ( 'check_for_from_is_to' );
 	
 	return $self;
 }
 
-sub check_for_from_is_not_reply_to {
+sub check_for_from_is_to {
 	my ($self, $msg) = @_;
 	my $from = lc($msg->get( 'From:addr' ));
-	my $replyTo = lc($msg->get( 'Reply-To:addr' ));
-	#Mail::SpamAssassin::Plugin::dbg( "FromIsNotReplyTo: Comparing '$from'/'$replyTo" );
-	if ( $from ne '' && $replyTo ne '' && $from ne $replyTo ) {
+	my $replyTo = lc($msg->get( 'To:addr' ));
+	#Mail::SpamAssassin::Plugin::dbg( "FromIsTo: Comparing '$from'/'$to" );
+	if ( $from ne '' && $to ne '' && $from eq $to ) {
 			return 1
 	}
 	return 0;

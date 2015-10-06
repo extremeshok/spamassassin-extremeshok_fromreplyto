@@ -22,3 +22,9 @@ loadplugin FromIsNotReplyToWhitelist plugins/FromIsNotReplyToWhitelist.pm
 header FROM_NOT_REPLYTO_WHITELIST eval:check_for_from_is_not_reply_to_whitelist()
 score FROM_NOT_REPLYTO_WHITELIST -6.0
 describe FROM_NOT_REPLYTO_WHITELIST From: and Reply-To: Whitelisted
+
+## Score 3 points to mail when to and from are the same
+loadplugin FromIsNotReplyTo plugins/FromIsTo.pm
+header FROM_IS_TO eval:check_for_from_is_to()
+score FROM_IS_TO 3.0
+describe FROM_IS_TO From: and To: is the same
