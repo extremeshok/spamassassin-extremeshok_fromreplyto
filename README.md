@@ -21,8 +21,15 @@ download the following and save to /etc/mail/spamassassin/plugins/
 FromAndReplyToIsNotSameDomain.pm
 FromIsNotReplyTo.pm
 FromIsNotReplyToWhitelist.pm
+FromIsTo.pm
 
 Download and save 01_extremeshok_fromreplyto.cf to  /etc/mail/spamassassin/01_extremeshok_fromreplyto.cf
+
+ 
+## Version 1.3 (updated 2015-10-06)
+ - eXtremeSHOK.com Maintenance
+ - Added FromIsTo, most spam emails the from" and to" is identical
+ - Minor code cleanups
  
 ## Version 1.2.10 (updated 2015-08-16)
  - eXtremeSHOK.com Maintenance
