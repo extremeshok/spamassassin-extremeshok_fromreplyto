@@ -9,7 +9,7 @@
 
 package FromAndReplyToIsNotSameDomain;
 1;
-use strict;
+#use strict;
 use Mail::SpamAssassin;
 use Mail::SpamAssassin::Plugin;
 our @ISA = qw(Mail::SpamAssassin::Plugin);
