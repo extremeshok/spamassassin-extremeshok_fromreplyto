@@ -9,7 +9,7 @@
 
 package FromAndReplyToIsNotSameDomain;
 1;
-#use strict;
+use strict;
 use Mail::SpamAssassin;
 use Mail::SpamAssassin::Plugin;
 our @ISA = qw(Mail::SpamAssassin::Plugin);
@@ -35,11 +35,14 @@ sub check_for_from_and_reply_to_is_not_same_domain {
 	if(( $check_from eq '' ) || ( $check_replyTo eq '' )){
 			return 0; #PASS, empty from or reply to
 	}
+
+	my (@check_fromParts, @check_replyToParts);
+	
 	#short-circuit logic
 	if( $check_from ne $check_replyTo )  {
 			#create arrays to make life easier
-			my @check_fromParts = split( /\./, $check_from );
-			my @check_replyToParts = split( /\./, $check_replyTo );
+			@check_fromParts = split( /\./, $check_from );
+			@check_replyToParts = split( /\./, $check_replyTo );
 
 
 			if (( $#check_fromParts ge 2) && ( $#check_fromParts ge 2 )) { 

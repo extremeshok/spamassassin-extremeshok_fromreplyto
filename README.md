@@ -29,7 +29,8 @@ spamassassin -D --lint 2>&1 | grep -i failed
 
  ## Version 1.3.1 (updated 2015-10-27)
  - eXtremeSHOK.com Maintenance
- - More unique varible names due
+ - More unique variable names
+ - Fixed warn: Global symbol
  
 ## Version 1.3
  - eXtremeSHOK.com Maintenance
