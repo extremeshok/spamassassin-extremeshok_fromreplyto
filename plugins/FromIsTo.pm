@@ -8,7 +8,7 @@
 # If the domains are different the email is sapm.
 ##################
 
-package FromIsNotTo;
+package FromIsTo;
 1;
 use strict;
 use Mail::SpamAssassin;
@@ -27,10 +27,10 @@ sub new {
 
 sub check_for_from_is_to {
 	my ($self, $msg) = @_;
-	my $from = lc($msg->get( 'From:addr' ));
-	my $replyTo = lc($msg->get( 'To:addr' ));
-	#Mail::SpamAssassin::Plugin::dbg( "FromIsTo: Comparing '$from'/'$to" );
-	if ( $from ne '' && $to ne '' && $from eq $to ) {
+	my $check_from = lc($msg->get( 'From:addr' ));
+	my $check_to = lc($msg->get( 'To:addr' ));
+	#Mail::SpamAssassin::Plugin::dbg( "FromIsTo: Comparing '$check_from'/'$check_to" );
+	if ( $check_from ne '' && $check_to ne '' && $check_from eq $check_to ) {
 			return 1
 	}
 	return 0;

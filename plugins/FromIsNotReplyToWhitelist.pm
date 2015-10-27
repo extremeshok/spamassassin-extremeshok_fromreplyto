@@ -29,37 +29,40 @@ sub new {
 
 sub check_for_from_is_not_reply_to_whitelist {
 	my ($self, $msg) = @_;
-	my $from = lc($msg->get( 'From:addr' ));
-	$from =~ s/.*@//;
-	my $replyTo = lc($msg->get( 'Reply-To:addr' ));
-	$replyTo =~ s/.*@//;
+	my $check_from = lc($msg->get( 'From:addr' ));
+	$check_from =~ s/.*@//;
+	my $check_replyTo = lc($msg->get( 'Reply-To:addr' ));
+	$check_replyTo =~ s/.*@//;
 
-	#Mail::SpamAssassin::Plugin::dbg( "FromIsNotReplyTo: Comparing '$from'/'$replyTo" );
-	if ( $from eq 'life.thinkingahead.co.za' && $replyTo eq 'sanlam.co.za' ) {
+	#Mail::SpamAssassin::Plugin::dbg( "FromIsNotReplyTo: Comparing '$check_from'/'$check_replyTo" );
+	if ( $check_from eq 'life.thinkingahead.co.za' && $check_replyTo eq 'sanlam.co.za' ) {
 			return 1
 	}
-	if ( $from eq 'accounting.sageone.co.za' && $replyTo eq 'hitecsecurity.co.za' ) {
+	if ( $check_from eq 'accounting.sageone.co.za' && $check_replyTo eq 'hitecsecurity.co.za' ) {
 			return 1
 	} 
-	if ( $from eq 'post.xero.com' && $replyTo eq 'metroroofingcontractors.co.za' ) {
+	if ( $check_from eq 'post.xero.com' && $check_replyTo eq 'metroroofingcontractors.co.za' ) {
 			return 1
 	} 
-	if ( $from eq 'surveys.mutualandfederal-surveys.eyerys.co.za' && $replyTo eq 'metroroofingcontractors.co.za' ) {
+	if ( $check_from eq 'surveys.mutualandfederal-surveys.eyerys.co.za' && $check_replyTo eq 'metroroofingcontractors.co.za' ) {
 			return 1
 	}  
-	if ( $from eq 'enews.swanhellenic.com' && $replyTo eq 'pageandmoytravelgroup.com' ) {
+	if ( $check_from eq 'enews.swanhellenic.com' && $check_replyTo eq 'pageandmoytravelgroup.com' ) {
 			return 1
 	}       
-	if ( $from eq 'fnbstatements.co.za' && $replyTo eq 'fnb.co.za' ) {
+	if ( $check_from eq 'fnbstatements.co.za' && $check_replyTo eq 'fnb.co.za' ) {
+			return 1
+	}
+	if ( $check_from eq 'msccruises.co.za' && $check_replyTo eq 'msccruises.com' ) {
 			return 1
 	}    
-	if ( $from eq 'notifications.pinterest.com' && $replyTo eq 'reply.pinterest.com' ) {
+	if ( $check_from eq 'notifications.pinterest.com' && $check_replyTo eq 'reply.pinterest.com' ) {
 			return 1
 	}        
-	if ( $from eq 'emc.co.za' && ($replyTo eq 'edcon.co.za' || $replyTo eq 'vodacom.co.za' || $replyTo eq 'total.co.za' ) ) {
+	if ( $check_from eq 'emc.co.za' && ($check_replyTo eq 'edcon.co.za' || $check_replyTo eq 'vodacom.co.za' || $check_replyTo eq 'total.co.za' ) ) {
 			return 1
 	} 
-	if ( $replyTo eq 'mrpg.com' && ($from eq 'services.sheetstreet.com' || $from eq 'services.miladys.com' ) ) {
+	if ( $check_replyTo eq 'mrpg.com' && ($check_from eq 'services.sheetstreet.com' || $check_from eq 'services.miladys.com' ) ) {
 			return 1
 	} 
 	

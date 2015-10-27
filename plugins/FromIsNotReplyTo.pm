@@ -30,10 +30,10 @@ sub new {
 
 sub check_for_from_is_not_reply_to {
 	my ($self, $msg) = @_;
-	my $from = lc($msg->get( 'From:addr' ));
-	my $replyTo = lc($msg->get( 'Reply-To:addr' ));
-	#Mail::SpamAssassin::Plugin::dbg( "FromIsNotReplyTo: Comparing '$from'/'$replyTo" );
-	if ( $from ne '' && $replyTo ne '' && $from ne $replyTo ) {
+	my $check_from = lc($msg->get( 'From:addr' ));
+	my $check_replyTo = lc($msg->get( 'Reply-To:addr' ));
+	#Mail::SpamAssassin::Plugin::dbg( "FromIsNotReplyTo: Comparing '$check_from'/'$check_replyTo" );
+	if ( $check_from ne '' && $check_replyTo ne '' && $check_from ne $check_replyTo ) {
 			return 1
 	}
 	return 0;

@@ -27,18 +27,21 @@ Verify the installation
 spamassassin -D --lint 2>&1 | grep -i failed
 ```
 
+ ## Version 1.3.1 (updated 2015-10-27)
+ - eXtremeSHOK.com Maintenance
+ - More unique varible names due
  
-## Version 1.3 (updated 2015-10-06)
+## Version 1.3
  - eXtremeSHOK.com Maintenance
  - Added FromIsTo, most spam emails the from" and to" is identical
  - Minor code cleanups
  - Project renamed
  - Improved documentation
  
-## Version 1.2.10 (updated 2015-08-16)
+## Version 1.2.10
  - eXtremeSHOK.com Maintenance
  - Fix for scoring missing from/replyto as a fail
 
-## Version 1.2.0 (updated 2015-08-16)
+## Version 1.2.0
  - eXtremeSHOK.com Maintenance
  - Better logic with domain checking, will allow for different subdomains of the same domain name.
