@@ -9,22 +9,22 @@
 loadplugin FromIsNotReplyTo plugins/FromIsNotReplyTo.pm
 header FROM_NOT_REPLYTO eval:check_for_from_is_not_reply_to()
 score FROM_NOT_REPLYTO 2.0
-describe FROM_NOT_REPLYTO From: does not match Reply-To:
+describe FROM_NOT_REPLYTO From does not match Reply-To
 
 # Score 5 points to mail with reply-to and from headers are not the same domain
 loadplugin FromAndReplyToIsNotSameDomain plugins/FromAndReplyToIsNotSameDomain.pm
 header FROM_NOT_REPLYTO_SAME_DOMAIN eval:check_for_from_and_reply_to_is_not_same_domain()
 score FROM_NOT_REPLYTO_SAME_DOMAIN 5.0
-describe FROM_NOT_REPLYTO_SAME_DOMAIN From domain: does not match Reply-To: domain
+describe FROM_NOT_REPLYTO_SAME_DOMAIN From domain does not match Reply-To domain
 
 ## Score -6 points to mail which are present in the whitelist
 loadplugin FromIsNotReplyToWhitelist plugins/FromIsNotReplyToWhitelist.pm
 header FROM_NOT_REPLYTO_WHITELIST eval:check_for_from_is_not_reply_to_whitelist()
 score FROM_NOT_REPLYTO_WHITELIST -6.0
-describe FROM_NOT_REPLYTO_WHITELIST From: and Reply-To: Whitelisted
+describe FROM_NOT_REPLYTO_WHITELIST From and Reply-To Whitelisted
 
 ## Score 3 points to mail when to and from are the same
 loadplugin FromIsTo plugins/FromIsTo.pm
 header FROM_IS_TO eval:check_for_from_is_to()
 score FROM_IS_TO 3.0
-describe FROM_IS_TO From: and To: is the same
+describe FROM_IS_TO From and To is the same

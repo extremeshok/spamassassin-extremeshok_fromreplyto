@@ -58,6 +58,9 @@ sub check_for_from_is_not_reply_to_whitelist {
 	}    
 	if ( $check_from eq 'notifications.pinterest.com' && $check_replyTo eq 'reply.pinterest.com' ) {
 			return 1
+	}    
+	if ( $check_from eq 'mrpmoney.mrp.com' && $check_replyTo eq 'mrpricegroup.com' ) {
+			return 1
 	}        
 	if ( $check_from eq 'emc.co.za' && ($check_replyTo eq 'edcon.co.za' || $check_replyTo eq 'vodacom.co.za' || $check_replyTo eq 'total.co.za' ) ) {
 			return 1
