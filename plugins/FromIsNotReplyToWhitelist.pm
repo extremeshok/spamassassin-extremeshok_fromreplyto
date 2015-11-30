@@ -59,6 +59,12 @@ sub check_for_from_is_not_reply_to_whitelist {
 	if ( $check_from eq 'notifications.pinterest.com' && $check_replyTo eq 'reply.pinterest.com' ) {
 			return 1
 	}    
+	if ( $check_from eq 'message.investec.com' && $check_replyTo eq 'investec.co.za' ) {
+			return 1
+	}     
+	if ( $check_from eq 'fnbstatements.co.za' && $check_replyTo eq 'edd.co.za' ) {
+			return 1
+	}    
 	if ( $check_from eq 'mrpmoney.mrp.com' && $check_replyTo eq 'mrpricegroup.com' ) {
 			return 1
 	}        
@@ -69,5 +75,7 @@ sub check_for_from_is_not_reply_to_whitelist {
 			return 1
 	} 
 	
+
+
 	return 0;
 }
