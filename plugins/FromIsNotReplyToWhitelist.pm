@@ -65,6 +65,9 @@ sub check_for_from_is_not_reply_to_whitelist {
 	if ( $check_from eq 'fnbstatements.co.za' && $check_replyTo eq 'edd.co.za' ) {
 			return 1
 	}    
+	if ( $check_from eq 'coct.slims.gov.za' && $check_replyTo eq 'capetown.gov.za' ) {
+			return 1
+	}     
 	if ( $check_from eq 'mrpmoney.mrp.com' && $check_replyTo eq 'mrpricegroup.com' ) {
 			return 1
 	}        
