@@ -71,8 +71,8 @@ sub check_for_from_is_not_reply_to_whitelist {
 	if ( $check_from eq 'mrpmoney.mrp.com' && $check_replyTo eq 'mrpricegroup.com' ) {
 			return 1
 	}        
-	if ( $check_from eq 'emc.co.za' && ($check_replyTo eq 'edcon.co.za' || $check_replyTo eq 'vodacom.co.za' || $check_replyTo eq 'total.co.za' ) ) {
-			return 1
+  if ( $check_from eq 'emc.co.za' && ($check_replyTo eq 'edcon.co.za' || $check_replyTo eq 'vodacom.co.za' || $check_replyTo eq 'total.co.za' || $check_replyTo eq 'wfs.co.za' || $check_replyTo eq 'tvlic.co.za' ) ) {
+  		return 1
 	} 
 	if ( $check_replyTo eq 'mrpg.com' && ($check_from eq 'services.sheetstreet.com' || $check_from eq 'services.miladys.com' ) ) {
 			return 1

@@ -27,7 +27,14 @@ Verify the installation
 spamassassin -D --lint 2>&1 | grep -i failed
 ```
 
-## Version 1.3.1 (updated 2015-10-27)
+## Version 1.4 (updated 2016-06-23)
+ - eXtremeSHOK.com Maintenance
+ - More unique variable names
+ - Fixed FromIsTo to check if the from and to are the same, then increase the spam score
+ - Added FromIsReplyTo to decrease spam score
+ - Fixed spam score points
+
+## Version 1.3.1
  - eXtremeSHOK.com Maintenance
  - More unique variable names
  - Fixed warn: Global symbol
