@@ -11,21 +11,22 @@
 ##################
 
 package FromIsNotReplyToWhitelist;
-1;
-use strict;
-use Mail::SpamAssassin;
-use Mail::SpamAssassin::Plugin;
-our @ISA = qw(Mail::SpamAssassin::Plugin);
+	use Mail::SpamAssassin::Plugin;
 
-sub new {
-	my ($class, $mailsa) = @_;
-	$class = ref($class) || $class;
-	my $self = $class->SUPER::new( $mailsa );
-	bless ($self, $class);
-	$self->register_eval_rule ( 'check_for_from_is_not_reply_to_whitelist' );
-	
-	return $self;
-}
+  our @ISA = qw(Mail::SpamAssassin::Plugin);
+  sub new {
+    my ($class, $mailsa) = @_;
+    
+    # the usual perlobj boilerplate to create a subclass object
+    $class = ref($class) || $class;
+    my $self = $class->SUPER::new($mailsa);
+    bless ($self, $class);
+   
+    # then register an eval rule, if desired...
+    $self->register_eval_rule ("check_for_from_is_not_reply_to_whitelist");
+    # and return the new plugin object
+    return $self;
+  }
 
 sub check_for_from_is_not_reply_to_whitelist {
 	my ($self, $msg) = @_;
@@ -34,7 +35,8 @@ sub check_for_from_is_not_reply_to_whitelist {
 	my $check_replyTo = lc($msg->get( 'Reply-To:addr' ));
 	$check_replyTo =~ s/.*@//;
 
-	#Mail::SpamAssassin::Plugin::dbg( "FromIsNotReplyTo: Comparing '$check_from'/'$check_replyTo" );
+	Mail::SpamAssassin::Plugin::dbg( "FromIsNotReplyToWhitelist: Comparing '$check_from'/'$check_replyTo" );
+
 	if ( $check_from eq 'life.thinkingahead.co.za' && $check_replyTo eq 'sanlam.co.za' ) {
 			return 1
 	}
@@ -76,9 +78,6 @@ sub check_for_from_is_not_reply_to_whitelist {
 	} 
 	if ( $check_replyTo eq 'mrpg.com' && ($check_from eq 'services.sheetstreet.com' || $check_from eq 'services.miladys.com' ) ) {
 			return 1
-	} 
-	
-
-
+	}
 	return 0;
 }

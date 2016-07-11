@@ -30,7 +30,7 @@ score FROM_NOT_REPLYTO_WHITELIST -6.0
 describe FROM_NOT_REPLYTO_WHITELIST From and Reply-To Whitelisted
 
 ## Score -0.5 points to mail when from and reply-to are the same
-loadplugin FromIsTo plugins/FromIsReplyTo.pm
+loadplugin FromIsReplyTo plugins/FromIsReplyTo.pm
 header FROM_IS_REPLY_TO eval:check_for_from_is_reply_to()
 score FROM_IS_REPLY_TO -0.5
 describe FROM_IS_REPLY_TO From and Repply-To is the same

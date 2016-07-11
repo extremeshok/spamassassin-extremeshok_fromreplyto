@@ -26,6 +26,10 @@ Verify the installation
 ```
 spamassassin -D --lint 2>&1 | grep -i failed
 ```
+## Version 1.5 (updated 2016-07-11)
+ - eXtremeSHOK.com Maintenance
+ - Fixed dbg: plugin: did not register FromIsTo, already registered
+ - Refactored to better support spamassassin 3.4 and newer
 
 ## Version 1.4 (updated 2016-06-23)
  - eXtremeSHOK.com Maintenance
