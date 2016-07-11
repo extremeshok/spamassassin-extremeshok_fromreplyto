@@ -31,7 +31,7 @@ spamassassin -D --lint 2>&1 | grep -i failed
  - Fixed dbg: plugin: did not register FromIsTo, already registered
  - Refactored to better support spamassassin 3.4 and newer
 
-## Version 1.4 (updated 2016-06-23)
+## Version 1.4
  - eXtremeSHOK.com Maintenance
  - More unique variable names
  - Fixed FromIsTo to check if the from and to are the same, then increase the spam score
