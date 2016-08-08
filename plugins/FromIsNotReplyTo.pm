@@ -8,7 +8,7 @@
 # Sometimes the From: and Reply-To: are different, 
 # but the domains will be the same.
 # If the domains are different the email is sapm.
-# Originially based on a script by Omar David Zapién López
+# Originially based on a script by Omar David ZapiÃ©n LÃ³pez
 ##################
 
 package FromIsNotReplyTo;
@@ -36,7 +36,7 @@ sub check_for_from_is_not_reply_to {
   
   Mail::SpamAssassin::Plugin::dbg( "FromIsNotReplyTo: Comparing '$check_from'/'$check_replyTo" );
   
-  if ( $check_from ne '' && $check_replyTo ne '' && $check_from eq $check_replyTo ) {
+  if ( $check_from ne '' && $check_replyTo ne '' && $check_from ne $check_replyTo ) {
       return 1
   }
   return 0;
