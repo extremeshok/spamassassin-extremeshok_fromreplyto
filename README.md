@@ -22,10 +22,15 @@ Download and save the plugins to /etc/mail/spamassassin/plugins/
 
 Download and save 01_extremeshok_fromreplyto.cf to /etc/mail/spamassassin/01_extremeshok_fromreplyto.cf
 
-Verify the installation
+Verify the installation with the following command.
 ```
 spamassassin -D --lint 2>&1 | grep -i failed
 ```
+
+## Version 1.6 (updated 2017-10-16)
+ - eXtremeSHOK.com Maintenance
+ - Added FromAndToIsSameDomain which can either increase or decrease the score
+
 ## Version 1.5 (updated 2016-07-11)
  - eXtremeSHOK.com Maintenance
  - Fixed dbg: plugin: did not register FromIsTo, already registered
@@ -42,14 +47,14 @@ spamassassin -D --lint 2>&1 | grep -i failed
  - eXtremeSHOK.com Maintenance
  - More unique variable names
  - Fixed warn: Global symbol
- 
+
 ## Version 1.3
  - eXtremeSHOK.com Maintenance
  - Added FromIsTo, most spam emails the from" and to" is identical
  - Minor code cleanups
  - Project renamed
  - Improved documentation
- 
+
 ## Version 1.2.10
  - eXtremeSHOK.com Maintenance
  - Fix for scoring missing from/replyto as a fail

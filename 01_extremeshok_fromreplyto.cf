@@ -12,11 +12,22 @@ header FROM_NOT_REPLYTO eval:check_for_from_is_not_reply_to()
 score FROM_NOT_REPLYTO 2.0
 describe FROM_NOT_REPLYTO From does not match Reply-To
 
-# Score 5 points to mail when from domain and reply-to domain are not the same
+## Score 5 points to mail when from domain and reply-to domain are not the same
 loadplugin FromAndReplyToIsNotSameDomain plugins/FromAndReplyToIsNotSameDomain.pm
 header FROM_NOT_REPLYTO_SAME_DOMAIN eval:check_for_from_and_reply_to_is_not_same_domain()
 score FROM_NOT_REPLYTO_SAME_DOMAIN 5.0
 describe FROM_NOT_REPLYTO_SAME_DOMAIN From domain does not match Reply-To domain
+
+
+### USER DEFINED SCORES, can be either a positive(spam) or a negative(ham) depending on your use case.
+# You will need to enable addition processing (whitelist authorized users and/or whitelist allowed sending servers) to prevent this from blocking legitimate same domain emailing.
+## Replace 0.01 with your score.
+## Score X points to mail when from domain and to domain are the same
+loadplugin FromAndToIsSameDomain plugins/FromAndToIsSameDomain.pm
+header FROM_AND_TO_IS_SAME_DOMAIN eval:check_for_from_and_to_is_same_domain()
+score FROM_AND_TO_IS_SAME_DOMAIN 0.01
+describe FROM_AND_TO_IS_SAME_DOMAIN From domain and To domain is the same
+
 
 ### NEGATIVE SCORES (HAM)
 ## Score -0.5 points to mail when from and to are the same.
