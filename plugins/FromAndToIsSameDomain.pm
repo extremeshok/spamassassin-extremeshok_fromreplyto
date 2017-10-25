@@ -26,7 +26,7 @@ package FromAndToIsSameDomain;
   }
 
 sub check_for_from_and_to_is_same_domain {
-  my ($self, $msg) = @_;check_to
+  my ($self, $msg) = @_;
   my $check_from = lc($msg->get( 'From:addr' ));
   $check_from =~ s/.*@//;
 
