@@ -9,34 +9,37 @@
 ##################
 
 package FromIsTo;
-  use Mail::SpamAssassin::Plugin;
+use Mail::SpamAssassin::Plugin;
 
-  our @ISA = qw(Mail::SpamAssassin::Plugin);
-  sub new {
-    my ($class, $mailsa) = @_;
-    
+our @ISA = qw(Mail::SpamAssassin::Plugin);
+
+sub new {
+    my ( $class, $mailsa ) = @_;
+
     # the usual perlobj boilerplate to create a subclass object
     $class = ref($class) || $class;
     my $self = $class->SUPER::new($mailsa);
-    bless ($self, $class);
-   
+    bless( $self, $class );
+
     # then register an eval rule, if desired...
-    $self->register_eval_rule ("check_for_from_is_to");
+    $self->register_eval_rule("check_for_from_is_to");
+
     # and return the new plugin object
     return $self;
-  }
+}
 
 sub check_for_from_is_to {
-  my ($self, $msg) = @_;
-  my $check_from = lc($msg->get( 'From:addr' ));
-  my $check_to = lc($msg->get( 'To:addr' ));
+    my ( $self, $msg ) = @_;
+    my $check_from = lc( $msg->get('From:addr') );
+    my $check_to   = lc( $msg->get('To:addr') );
 
-  Mail::SpamAssassin::Plugin::dbg( "FromIsTo: Comparing '$check_from'/'$check_to" );
+    Mail::SpamAssassin::Plugin::dbg(
+        "FromIsTo: Comparing '$check_from'/'$check_to");
 
-  if ( $check_from ne '' && $check_to ne '' && $check_from eq $check_to ) {
-      return 1
-  }
-  return 0;
+    if ( $check_from ne '' && $check_to ne '' && $check_from eq $check_to ) {
+        return 1;
+    }
+    return 0;
 }
 
 # This ;1 is important

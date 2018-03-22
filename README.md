@@ -6,7 +6,7 @@
 Configures spamassassin to score mails with various rules against the reply-to, from and to headers.
 Spam often uses a different From: and Reply-To: Whilst most legitimate email does not.
 Spam often uses the same From: and To: Whilst most legitimate email does not
-Same domain checking Logic, will allow for different subdomains of the same domain name.
+Same domain checking Logic, will allow for different sub-domains of the same domain name.
 
 ## REQUIRES
 spamassassin
@@ -26,6 +26,10 @@ Verify the installation with the following command.
 ```
 spamassassin -D --lint 2>&1 | grep -i failed
 ```
+## Version 1.7 (updated 2018-03-22)
+ - eXtremeSHOK.com Maintenance
+ - Allow whitelisting of your contact form, view comments in plugins/FromIsNotReplyToWhitelist.pm
+ - Added $check_replyTo_full_address and $check_from_full_address variables to plugins/FromIsNotReplyToWhitelist.pm
 
 ## Version 1.6 (updated 2017-10-16)
  - eXtremeSHOK.com Maintenance
@@ -61,4 +65,4 @@ spamassassin -D --lint 2>&1 | grep -i failed
 
 ## Version 1.2.0
  - eXtremeSHOK.com Maintenance
- - Better logic with domain checking, will allow for different subdomains of the same domain name.
+ - Better logic with domain checking, will allow for different sub-domains of the same domain name.
