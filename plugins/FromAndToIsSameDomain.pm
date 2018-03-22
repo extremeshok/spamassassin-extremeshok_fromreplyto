@@ -51,7 +51,7 @@ sub check_for_from_and_to_is_same_domain {
         @check_fromParts = split( /\./, $check_from );
         @check_toParts   = split( /\./, $check_to );
 
-        if ( ( $#check_fromParts ge 2 ) && ( $#check_fromParts ge 2 ) ) {
+        if ( ( $#check_fromParts ge 1 ) && ( $#check_fromParts ge 1 ) ) {
             if ( $check_fromParts[-1] ne $check_toParts[-1] ) {
                 return 1;    #fail, not the same .tld
             }

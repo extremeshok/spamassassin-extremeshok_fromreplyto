@@ -30,6 +30,7 @@ spamassassin -D --lint 2>&1 | grep -i failed
  - eXtremeSHOK.com Maintenance
  - Allow whitelisting of your contact form, view comments in plugins/FromIsNotReplyToWhitelist.pm
  - Added $check_replyTo_full_address and $check_from_full_address variables to plugins/FromIsNotReplyToWhitelist.pm
+ - Bugfix: Array Index values wrong @slider182
 
 ## Version 1.6 (updated 2017-10-16)
  - eXtremeSHOK.com Maintenance
