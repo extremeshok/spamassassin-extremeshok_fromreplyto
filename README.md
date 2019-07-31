@@ -26,6 +26,20 @@ Verify the installation with the following command.
 ```
 spamassassin -D --lint 2>&1 | grep -i failed
 ```
+
+## NOTE
+For scoring email with the following 
+```
+From: "auto-confirm@amazon.com" <mary@doublediamonddairy.com>
+```
+Add this custom SA rule:
+```
+header	  FROM_NAME_SPOOF From =~ /^.*@.*<.*@.*>/i
+describe  FROM_NAME_SPOOF FromNameSpoof
+score 	  FROM_NAME_SPOOF 5.0
+```
+
+
 ## Version 1.7 (updated 2018-03-22)
  - eXtremeSHOK.com Maintenance
  - Allow whitelisting of your contact form, view comments in plugins/FromIsNotReplyToWhitelist.pm
