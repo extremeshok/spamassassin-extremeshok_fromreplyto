@@ -1,3 +1,9 @@
+# DEPRECATED
+# This has been integrated in SpamAssassin 3.4.2 and newer
+# With the plugin Mail::SpamAssassin::Plugin::FromNameSpoof
+# https://metacpan.org/pod/Mail::SpamAssassin::Plugin::FromNameSpoof
+
+
 # spamassassin-extremeshok_fromreplyto
 
 ## Maintained and provided by https://eXtremeSHOK.com
